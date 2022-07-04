@@ -31,7 +31,7 @@ local shadows = T{
 local function GetShadowCount()
     local me = AshitaCore:GetMemoryManager():GetPlayer()
     local buffs = me:GetBuffs()
-    
+
     for _, buff in pairs(buffs) do
         if buff == 66 then
           return 1;
