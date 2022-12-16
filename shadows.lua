@@ -31,11 +31,11 @@ local shadows = T{
 	settings = settings.load(default_settings)
 };
 
-local UpdateSettings = function()
+local UpdateSettings = function(settings)
+  shadows.settings = settings;
   if (shadows.font ~= nil) then
-      shadows.font:destroy();
+      shadows.font:apply(shadows.settings.font)
   end
-  shadows.font = fonts.new(shadows.settings.font);
 end
 
 local function GetShadowCount()
