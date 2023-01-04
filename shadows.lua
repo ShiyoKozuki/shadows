@@ -1,8 +1,8 @@
 addon.name      = 'Shadows';
 addon.author    = 'Shiyo';
-addon.version   = '1.2';
-addon.desc      = 'Displays shadow count';
-addon.link      = 'https://ashitaxi.com/';
+addon.version   = '1.3';
+addon.desc      = 'Displays utsusemi and third eye count';
+addon.link      = 'https://github.com/ShiyoKozuki';
 
 require('common');
 local chat = require('chat');
@@ -43,7 +43,7 @@ local function GetShadowCount()
     local buffs = me:GetBuffs()
 
     for _, buff in pairs(buffs) do
-        if buff == 66 then
+        if buff == 66 or buff == 67 then
           return 1;
         elseif buff == 444 then
           return 2;
@@ -80,8 +80,8 @@ ashita.events.register('d3d_present', 'present_cb', function ()
       settings.save()
   end
 	
-	if mJob == 13 or sJob == 13 then
-	  shadows.font.text = ('%d' ):fmt(GetShadowCount());    
+	if mJob == 12 or mJob == 13 or sJob == 12 or sJob == 13 then
+	  shadows.font.text = ('%d' ):fmt(GetShadowCount());
 	  shadows.font.visible = true;
 	else
 	  shadows.font.visible = false;
